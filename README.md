@@ -1,4 +1,4 @@
-# ENGG6570-Soft-Computing Course Note
+# ENGG6570-Soft-Computing Term Project
 |Object|Due Date|Percentage|
 |---|---|---|
 |Proposal|Tuesday, June 8|10%|
