@@ -80,19 +80,53 @@ class BruteForceSolution:
         #     print ("Robot -> Target [",arrangement,"] distance is "+ str(dist))
         return d
 
-    def getDistanceHistogram(self):
+    def getDistanceHistogram(self,f, row, col, position):
+        axes = f.add_subplot(row, col, position)
         seperated_list = self.sorted_arrangement_dist_list
         # the histogram of the data
-        n, bins, patches = plt.hist(seperated_list[1])
-        plt.xlabel('Total Distance')
+        n, bins, patches = plt.hist(seperated_list[1],bins=50)
+        plt.xlabel('Travel Distance')
         plt.ylabel('Occurrence')
-        titleStr = "M = "+ str(self.m)+"   T="+str(self.k)+"\n Total # of available arrangement is "\
-                   +str(len(seperated_list[0]))+"\n The shortest Distance is "+str(seperated_list[1][0])+\
-                   "\n with the Robot -> Task arrangement as "+ seperated_list[0][0]
+        titleStr = "M = "+ str(self.m)+"   T="+str(self.k)+", The shortest Distance is "+str(seperated_list[1][0])+"\n Total # of available arrangement is "\
+                   +str(len(seperated_list[0]))+\
+                   "\n The Min path will assign the robots to tasks:"+ seperated_list[0][0] +" respectively"
         plt.title(titleStr)
         plt.grid(True)
-        plt.show()
+        return f
 
+    def getSubPlotTest(self,f, row, col, position):
+        '''
+        This is a test funciton, do not use
+        :param f:
+        :param row:
+        :param col:
+        :param position:
+        :return:
+        '''
+        axarr = f.add_subplot(row,col,position)
+        axarr.plot([5,5])
+        # print(type(f))
+        return f
+    def getSubPlotReal(self,f, row, col, position):
+        '''
+        This is a test funciton, do not use
+        :param f:
+        :param row:
+        :param col:
+        :param position:
+        :return:
+        '''
+        axes = f.add_subplot(row, col, position)
+        seperated_list = self.sorted_arrangement_dist_list
+        n, bins, patches = plt.hist(seperated_list[1])
+        plt.xlabel('Travel Distance')
+        plt.ylabel('Occurrence')
+        titleStr = "M = " + str(self.m) + "   T=" + str(self.k) + "\n Total # of available arrangement is " \
+                   + str(len(seperated_list[0])) + "\n The shortest Distance is " + str(seperated_list[1][0]) + \
+                   "\n with the Robot -> Task arrangement as " + seperated_list[0][0]
+        plt.title(titleStr)
+        plt.grid(True)
+        return f
     def GenerateRobotPath(self):
         bestArrangement = self.sorted_arrangement_dist_list[0][0]
         nextMovement = []
