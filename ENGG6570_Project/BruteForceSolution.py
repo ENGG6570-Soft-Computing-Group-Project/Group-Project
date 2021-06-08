@@ -15,6 +15,7 @@ class BruteForceSolution:
         self.sorted_arrangement_dist_list = self.AllPossibleList()
         self.uniqueCombination = 0
         self.eliminateItems = dict()
+        self.minDistance = self.sorted_arrangement_dist_list[1][0]
 
 
     def distanceBetweenTwoPoints(self,x,y,m,n):
@@ -87,7 +88,7 @@ class BruteForceSolution:
         n, bins, patches = plt.hist(seperated_list[1],bins=50)
         plt.xlabel('Travel Distance')
         plt.ylabel('Occurrence')
-        titleStr = "M = "+ str(self.m)+"   T="+str(self.k)+", The shortest Distance is "+str(seperated_list[1][0])+"\n Total # of available arrangement is "\
+        titleStr = "M = "+ str(self.m)+"   K="+str(self.k)+", The shortest Distance is "+str(seperated_list[1][0])+"\n Total # of available arrangement is "\
                    +str(len(seperated_list[0]))+\
                    "\n The Min path will assign the robots to tasks:"+ seperated_list[0][0] +" respectively"
         plt.title(titleStr)

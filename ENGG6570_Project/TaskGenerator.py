@@ -21,6 +21,14 @@ def GenerateTask(maxValue: int, numofTask: int):
 def GenerateRobot(maxValue: int, numofRobot: int):
     return GenerateTask(maxValue, numofRobot)
 
+def GenerateRobotTrace(maxValue:int, numofRobot:int):
+    mylist = GenerateTask(maxValue, numofRobot)
+    result = []
+    for i in mylist:
+        result.append([i])
+    return result
+
+
 
 #############################################################
 ### unit test
